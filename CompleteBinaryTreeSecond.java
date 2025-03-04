@@ -23,7 +23,6 @@ public class CompleteBinaryTreeSecond {
         root = buildTree(interval);
     }
 
-    // Recursive method to build the binary tree
     private Node buildTree(int[] interval) {
         int start = interval[0];
         int end = interval[interval.length - 1];
@@ -84,7 +83,6 @@ public class CompleteBinaryTreeSecond {
                 reducedGraph.addEdge(newV1, newV2);
             }
         }
-        System.out.println("✅ Reduced Graph for interval [" + start + "," + end + "]: " + reducedGraph);
         return reducedGraph;
     }
 
@@ -112,7 +110,6 @@ public class CompleteBinaryTreeSecond {
         int compU = mapping.get(u);
         int compV = mapping.get(v);
         if (compU != compV) {
-            // Create a canonical representation so that edge order does not matter.
             String canonicalEdge = (compU < compV) ? compU + "-" + compV : compV + "-" + compU;
             if (!addedEdges.contains(canonicalEdge)) {
                 contractedGraph.addEdge(compU, compV);
@@ -121,7 +118,6 @@ public class CompleteBinaryTreeSecond {
         }
     }
 
-    System.out.println("✅ Contracted Graph (components contracted): " + contractedGraph);
     return new Pair<>(contractedGraph, mapping);
 }
     
@@ -326,7 +322,7 @@ public Pair<Integer, Node> compId(int v, Node node, int queryTime) {//sygkekrime
         coveringNodes.addAll(getCoveringNodes(node.getRight(), qStart, qEnd));
 
         for (Node n : coveringNodes) {
-            int queryTime = n.getInterval()[1]; // ή δοκίμασε και με το μέσο του interval
+            int queryTime = n.getInterval()[1]; 
             Pair<Integer, Node> repU = compId(1, n, queryTime);
             Pair<Integer, Node> repV = compId(3, n, queryTime);
             System.out.println("Node interval: " + Arrays.toString(n.getInterval()) +

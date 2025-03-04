@@ -167,7 +167,7 @@ public class Graph {
         return bag.get(v).contains(w);
     }
 
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         int a = 4;
         Graph G = new Graph(a);
         G.addEdge(1, 2);
@@ -185,7 +185,7 @@ public class Graph {
 
         
 
-    }
+    }*/
 
 
 }

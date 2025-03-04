@@ -19,7 +19,7 @@ public class TimelineSecond {
         this.timeList = new ArrayList<>();
         for (Object[] element : timeList) {
             if (element.length != 3) {
-                throw new IllegalArgumentException("Each element must be represented by an array of size 3 (two numbers and an operator)");
+                throw new IllegalArgumentException("It must have 2 numbers 1 operator");
             }
             int num1 = (int) element[0];
             int num2 = (int) element[1];
@@ -39,7 +39,6 @@ public class TimelineSecond {
         String line;
         while ((line = br.readLine()) != null) {
             if (line.startsWith("Timeline:")) {
-                // Parse the timeline
                 String[] events = line.substring(9).split("\\),\\(");
                 for (String event : events) {
                     event = event.replaceAll("\\(|\\)", ""); 
@@ -100,7 +99,6 @@ public class TimelineSecond {
 
 
     public Graph intersection(int a, int b) {
-        // Validate indices.
         if (a < 0 || b > timeList.size() || a > b) {
             throw new IllegalArgumentException("Invalid interval: [" + a + ", " + b + "]");
         }
